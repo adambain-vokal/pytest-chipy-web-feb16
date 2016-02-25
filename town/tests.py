@@ -41,6 +41,7 @@ def reverse_args(request, state, county):
 def test_create(client, county, reverse_args):
     url = reverse(reverse_args[0], args=reverse_args[1])
     data = {'name': 'Schaumburg', 'population': 75000, 'county': county.id}
+    # print(">>>     ", url)
     response = client.post(url, data)
 
     assert response.status_code == status.HTTP_201_CREATED
